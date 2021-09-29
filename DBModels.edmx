@@ -1,0 +1,1807 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SarasiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="attendence1">
+          <Key>
+            <PropertyRef Name="AttendenceID" />
+          </Key>
+          <Property Name="AttendenceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpID" Type="varchar" MaxLength="10" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="date" />
+          <Property Name="INtime" Type="varchar" MaxLength="10" />
+          <Property Name="OutTime" Type="varchar" MaxLength="10" />
+          <Property Name="Status" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="BookedEvent">
+          <Key>
+            <PropertyRef Name="eventID" />
+          </Key>
+          <Property Name="eventID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="currentDate" Type="date" Nullable="false" />
+          <Property Name="currentTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="customerID" Type="varchar" MaxLength="10" />
+          <Property Name="customerName" Type="varchar" MaxLength="50" />
+          <Property Name="eventDate" Type="date" Nullable="false" />
+          <Property Name="advance" Type="float" />
+          <Property Name="eventName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="hall" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="time" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="themeColor" Type="varchar" MaxLength="20" />
+          <Property Name="decoTeam" Type="varchar" MaxLength="20" />
+          <Property Name="foodPckage" Type="varchar" MaxLength="20" />
+          <Property Name="note" Type="varchar" MaxLength="250" />
+          <Property Name="eventTime" Type="time" Precision="7" />
+          <Property Name="noOfParticipants" Type="int" />
+        </EntityType>
+        <EntityType Name="Cleaner">
+          <Key>
+            <PropertyRef Name="cleanerid" />
+          </Key>
+          <Property Name="cleanerid" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ctype" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DecorationTeam">
+          <Key>
+            <PropertyRef Name="dtID" />
+          </Key>
+          <Property Name="dtID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="dtName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NoOfMembers" Type="int" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="contactNo" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="250" />
+          <Property Name="image1" Type="image" />
+          <Property Name="image2" Type="image" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="driverid" />
+          </Key>
+          <Property Name="driverid" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="service" Type="varchar" MaxLength="50" />
+          <Property Name="licenceNo" Type="int" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="employeeId" />
+          </Key>
+          <Property Name="employeeId" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="fname" Type="varchar" MaxLength="50" />
+          <Property Name="lname" Type="varchar" MaxLength="50" />
+          <Property Name="dob" Type="datetime" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+          <Property Name="contactno" Type="int" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+          <Property Name="nationality" Type="varchar" MaxLength="50" />
+          <Property Name="nic" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="designation" Type="varchar" MaxLength="50" />
+          <Property Name="matrialstatus" Type="varchar" MaxLength="50" />
+          <Property Name="basicsalary" Type="int" />
+          <Property Name="image" Type="image" />
+        </EntityType>
+        <EntityType Name="EventPackage">
+          <Key>
+            <PropertyRef Name="packageID" />
+          </Key>
+          <Property Name="packageID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="plate_price" Type="float" Nullable="false" />
+          <Property Name="noOfCurries" Type="int" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="250" />
+          <Property Name="mainMeal" Type="image" Nullable="false" />
+          <Property Name="desert" Type="image" Nullable="false" />
+        </EntityType>
+        <EntityType Name="evPay">
+          <Key>
+            <PropertyRef Name="paymentID" />
+          </Key>
+          <Property Name="paymentID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="eventID" Type="varchar" MaxLength="10" />
+          <Property Name="advance" Type="float" />
+          <Property Name="remainning" Type="float" />
+          <Property Name="paid" Type="float" />
+          <Property Name="change" Type="float" />
+          <Property Name="date" Type="date" />
+          <Property Name="time" Type="time" Precision="7" />
+          <Property Name="total" Type="float" />
+        </EntityType>
+        <EntityType Name="expOrder">
+          <Key>
+            <PropertyRef Name="expOrderID" />
+          </Key>
+          <Property Name="expOrderID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="eventID" Type="varchar" MaxLength="10" />
+          <Property Name="list" Type="varchar" MaxLength="254" />
+        </EntityType>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="foodCode" />
+          </Key>
+          <Property Name="foodCode" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="categoryID" Type="nchar" MaxLength="10" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="sellingPrice" Type="float" />
+          <Property Name="disountRate" Type="float" />
+          <Property Name="foodImage" Type="image" />
+        </EntityType>
+        <EntityType Name="FoodCategory">
+          <Key>
+            <PropertyRef Name="foodCategoryID" />
+          </Key>
+          <Property Name="foodCategoryID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HeadChef">
+          <Key>
+            <PropertyRef Name="headchefid" />
+          </Key>
+          <Property Name="headchefid" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="service" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="itemID" />
+          </Key>
+          <Property Name="itemID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="categoryID" Type="nchar" MaxLength="10" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="limitQuantity" Type="int" />
+          <Property Name="suppliedBy" Type="char" MaxLength="10" />
+          <Property Name="image" Type="image" />
+          <Property Name="purchase_price" Type="float" />
+          <Property Name="unitOfMeasurement" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ItemCategory">
+          <Key>
+            <PropertyRef Name="itemCategoryID" />
+          </Key>
+          <Property Name="itemCategoryID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="categoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="Managerid" />
+          </Key>
+          <Property Name="Managerid" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="experience" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Order_">
+          <Key>
+            <PropertyRef Name="orderID" />
+          </Key>
+          <Property Name="orderID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="recordBy" Type="nchar" MaxLength="10" />
+          <Property Name="date" Type="date" />
+          <Property Name="time" Type="time" Precision="7" />
+          <Property Name="amount" Type="float" />
+        </EntityType>
+        <EntityType Name="OrderFood">
+          <Key>
+            <PropertyRef Name="orderID" />
+            <PropertyRef Name="foodID" />
+          </Key>
+          <Property Name="orderID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="foodID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="total" Type="float" />
+        </EntityType>
+        <EntityType Name="OrderReadymadeProduct">
+          <Key>
+            <PropertyRef Name="orderID" />
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="orderID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="productID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="total" Type="float" />
+        </EntityType>
+        <EntityType Name="ordersToBePrepared">
+          <Key>
+            <PropertyRef Name="orderID" />
+          </Key>
+          <Property Name="orderID" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductOrder">
+          <Key>
+            <PropertyRef Name="orderID" />
+          </Key>
+          <Property Name="orderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="recordBy" Type="nchar" MaxLength="10" />
+          <Property Name="date" Type="date" />
+          <Property Name="time" Type="time" Precision="7" />
+          <Property Name="amount" Type="real" />
+        </EntityType>
+        <EntityType Name="ReadyMadeProduct">
+          <Key>
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="productID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="sellingPrice" Type="float" />
+        </EntityType>
+        <EntityType Name="Reception">
+          <Key>
+            <PropertyRef Name="receptionid" />
+          </Key>
+          <Property Name="receptionid" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="language" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RentID" Type="int" Nullable="false" />
+          <Property Name="DriverID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VehiID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CusID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RentDate" Type="date" Nullable="false" />
+          <Property Name="AfterDate" Type="date" Nullable="false" />
+          <Property Name="NoOfKM" Type="int" Nullable="false" />
+          <Property Name="TotalPrice" Type="float" Nullable="false" />
+          <Property Name="Advance" Type="float" Nullable="false" />
+          <Property Name="Balance" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rent_2">
+          <Key>
+            <PropertyRef Name="RentID" />
+          </Key>
+          <Property Name="RentID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="vehicleID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DriverID" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="phone" Type="int" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="vehicleNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RentDate" Type="date" Nullable="false" />
+          <Property Name="VehicleImage" Type="image" Nullable="false" />
+          <Property Name="AfterDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Room1">
+          <Key>
+            <PropertyRef Name="RoomID" />
+          </Key>
+          <Property Name="RoomID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RoomNo" Type="varchar" MaxLength="100" />
+          <Property Name="bedtype" Type="varchar" MaxLength="100" />
+          <Property Name="maxaadult" Type="varchar" MaxLength="100" />
+          <Property Name="floor" Type="varchar" MaxLength="100" />
+          <Property Name="roomtype" Type="varchar" MaxLength="100" />
+          <Property Name="RoomImage" Type="image" />
+          <Property Name="available" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Salary">
+          <Key>
+            <PropertyRef Name="SalaryID" />
+          </Key>
+          <Property Name="SalaryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpID" Type="varchar" MaxLength="10" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="date" />
+          <Property Name="NoOfDays" Type="int" />
+          <Property Name="OTRate" Type="float" />
+          <Property Name="OThours" Type="int" />
+          <Property Name="Bouns" Type="float" />
+          <Property Name="Deduction" Type="float" />
+          <Property Name="ETF" Type="int" />
+          <Property Name="Allowance" Type="float" Nullable="false" />
+          <Property Name="Netsal" Type="real" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StockAudit">
+          <Key>
+            <PropertyRef Name="stockAuditID" />
+          </Key>
+          <Property Name="stockAuditID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="itemID" Type="nchar" MaxLength="10" />
+          <Property Name="date" Type="date" />
+          <Property Name="time" Type="time" Precision="7" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="inOut" Type="bit" />
+          <Property Name="expireDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="SID" />
+          </Key>
+          <Property Name="SID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblContact">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="50" />
+          <Property Name="ContactNo" Type="varchar" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="TempStaff">
+          <Key>
+            <PropertyRef Name="staffID" />
+          </Key>
+          <Property Name="staffID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="fName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="contact" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="dailySal" Type="float" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserLogin">
+          <Key>
+            <PropertyRef Name="loginID" />
+          </Key>
+          <Property Name="loginID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="vehicleID" />
+          </Key>
+          <Property Name="vehicleID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="vehicleNo" Type="nchar" MaxLength="10" />
+          <Property Name="type" Type="nchar" MaxLength="10" />
+          <Property Name="brand" Type="nchar" MaxLength="10" />
+          <Property Name="model" Type="nchar" MaxLength="10" />
+          <Property Name="InsuaranceType" Type="nchar" MaxLength="10" />
+          <Property Name="RentPerDay" Type="float" />
+          <Property Name="RentPerkm" Type="float" />
+          <Property Name="VehicleImage" Type="image" />
+        </EntityType>
+        <EntityType Name="VehicleCategory">
+          <Key>
+            <PropertyRef Name="vehicleCategoryID" />
+          </Key>
+          <Property Name="vehicleCategoryID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_Cleaner_Cleaner">
+          <End Role="Cleaner" Type="Self.Cleaner" Multiplicity="1" />
+          <End Role="Cleaner1" Type="Self.Cleaner" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Cleaner">
+              <PropertyRef Name="cleanerid" />
+            </Principal>
+            <Dependent Role="Cleaner1">
+              <PropertyRef Name="cleanerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Food">
+          <End Role="FoodCategory" Type="Self.FoodCategory" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCategory">
+              <PropertyRef Name="foodCategoryID" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ITEM">
+          <End Role="ItemCategory" Type="Self.ItemCategory" Multiplicity="0..1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemCategory">
+              <PropertyRef Name="itemCategoryID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDDER_READYMADE">
+          <End Role="ReadyMadeProduct" Type="Self.ReadyMadeProduct" Multiplicity="1" />
+          <End Role="OrderReadymadeProduct" Type="Self.OrderReadymadeProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReadyMadeProduct">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="OrderReadymadeProduct">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderFood">
+          <End Role="Food" Type="Self.Food" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderFood" Type="Self.OrderFood" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="foodCode" />
+            </Principal>
+            <Dependent Role="OrderFood">
+              <PropertyRef Name="foodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RMProucts">
+          <End Role="Item" Type="Self.Item" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReadyMadeProduct" Type="Self.ReadyMadeProduct" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="itemID" />
+            </Principal>
+            <Dependent Role="ReadyMadeProduct">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salary_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Salary" Type="Self.Salary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="employeeId" />
+            </Principal>
+            <Dependent Role="Salary">
+              <PropertyRef Name="EmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_StockAudit">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StockAudit" Type="Self.StockAudit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="itemID" />
+            </Principal>
+            <Dependent Role="StockAudit">
+              <PropertyRef Name="itemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicle_Vehicle">
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="1" />
+          <End Role="Vehicle1" Type="Self.Vehicle" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicle">
+              <PropertyRef Name="vehicleID" />
+            </Principal>
+            <Dependent Role="Vehicle1">
+              <PropertyRef Name="vehicleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VehicleCategory_VehicleCategory">
+          <End Role="VehicleCategory" Type="Self.VehicleCategory" Multiplicity="1" />
+          <End Role="VehicleCategory1" Type="Self.VehicleCategory" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="VehicleCategory">
+              <PropertyRef Name="vehicleCategoryID" />
+            </Principal>
+            <Dependent Role="VehicleCategory1">
+              <PropertyRef Name="vehicleCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="attenSummery" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getExpiredItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getExpiredItemsWithinNextMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getExpiredReadyMades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getExpiredReadyMadesWithinNextMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getOrderedItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="orderID" Type="nchar" Mode="In" />
+        </Function>
+        <Function Name="getSearchFood" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="keyword" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="getSearchItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="keyword" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="searchItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="keyword" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="SarasiModelStoreContainer">
+          <EntitySet Name="attendence1" EntityType="Self.attendence1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookedEvent" EntityType="Self.BookedEvent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cleaner" EntityType="Self.Cleaner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DecorationTeam" EntityType="Self.DecorationTeam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventPackage" EntityType="Self.EventPackage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="evPay" EntityType="Self.evPay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="expOrder" EntityType="Self.expOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FoodCategory" EntityType="Self.FoodCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HeadChef" EntityType="Self.HeadChef" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemCategory" EntityType="Self.ItemCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_" EntityType="Self.Order_" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderFood" EntityType="Self.OrderFood" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderReadymadeProduct" EntityType="Self.OrderReadymadeProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ordersToBePrepared" EntityType="Self.ordersToBePrepared" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductOrder" EntityType="Self.ProductOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReadyMadeProduct" EntityType="Self.ReadyMadeProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reception" EntityType="Self.Reception" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rent" EntityType="Self.Rent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rent_2" EntityType="Self.Rent_2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Room1" EntityType="Self.Room1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salary" EntityType="Self.Salary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StockAudit" EntityType="Self.StockAudit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblContact" EntityType="Self.tblContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TempStaff" EntityType="Self.TempStaff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLogin" EntityType="Self.UserLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VehicleCategory" EntityType="Self.VehicleCategory" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cleaner_Cleaner" Association="Self.FK_Cleaner_Cleaner">
+            <End Role="Cleaner" EntitySet="Cleaner" />
+            <End Role="Cleaner1" EntitySet="Cleaner" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Food" Association="Self.fk_Food">
+            <End Role="FoodCategory" EntitySet="FoodCategory" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ITEM" Association="Self.FK_ITEM">
+            <End Role="ItemCategory" EntitySet="ItemCategory" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDDER_READYMADE" Association="Self.FK_ORDDER_READYMADE">
+            <End Role="ReadyMadeProduct" EntitySet="ReadyMadeProduct" />
+            <End Role="OrderReadymadeProduct" EntitySet="OrderReadymadeProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderFood" Association="Self.FK_OrderFood">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="OrderFood" EntitySet="OrderFood" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RMProucts" Association="Self.fk_RMProucts">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ReadyMadeProduct" EntitySet="ReadyMadeProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salary_Employee" Association="Self.FK_Salary_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Salary" EntitySet="Salary" />
+          </AssociationSet>
+          <AssociationSet Name="fk_StockAudit" Association="Self.fk_StockAudit">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="StockAudit" EntitySet="StockAudit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicle_Vehicle" Association="Self.FK_Vehicle_Vehicle">
+            <End Role="Vehicle" EntitySet="Vehicle" />
+            <End Role="Vehicle1" EntitySet="Vehicle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VehicleCategory_VehicleCategory" Association="Self.FK_VehicleCategory_VehicleCategory">
+            <End Role="VehicleCategory" EntitySet="VehicleCategory" />
+            <End Role="VehicleCategory1" EntitySet="VehicleCategory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SarasiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="getExpiredItems" ReturnType="Collection(SarasiModel.getExpiredItems_Result)" />
+          <FunctionImport Name="getExpiredItems1" ReturnType="Collection(SarasiModel.getExpiredItems1_Result)" />
+          <FunctionImport Name="getExpiredItemsWithinNextMonth" ReturnType="Collection(SarasiModel.getExpiredItemsWithinNextMonth_Result)" />
+          <FunctionImport Name="getOrderedItems" ReturnType="Collection(SarasiModel.getOrderedItems_Result)">
+          <Parameter Name="orderID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getExpiredReadyMades" ReturnType="Collection(SarasiModel.getExpiredReadyMades_Result)" />
+          <FunctionImport Name="getExpiredReadyMadesWithinNextMonth" ReturnType="Collection(SarasiModel.getExpiredReadyMadesWithinNextMonth_Result)" />
+          <FunctionImport Name="getOrderedItems1" ReturnType="Collection(SarasiModel.getOrderedItems1_Result)">
+          <Parameter Name="orderID" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="attendence1" EntityType="SarasiModel.attendence1" />
+          <EntitySet Name="Cleaners" EntityType="SarasiModel.Cleaner" />
+          <EntitySet Name="Drivers" EntityType="SarasiModel.Driver" />
+          <EntitySet Name="Employees" EntityType="SarasiModel.Employee" />
+          <EntitySet Name="Foods" EntityType="SarasiModel.Food" />
+          <EntitySet Name="FoodCategories" EntityType="SarasiModel.FoodCategory" />
+          <EntitySet Name="HeadChefs" EntityType="SarasiModel.HeadChef" />
+          <EntitySet Name="Items" EntityType="SarasiModel.Item" />
+          <EntitySet Name="ItemCategories" EntityType="SarasiModel.ItemCategory" />
+          <EntitySet Name="Managers" EntityType="SarasiModel.Manager" />
+          <EntitySet Name="Order_" EntityType="SarasiModel.Order_" />
+          <EntitySet Name="OrderFoods" EntityType="SarasiModel.OrderFood" />
+          <EntitySet Name="OrderReadymadeProducts" EntityType="SarasiModel.OrderReadymadeProduct" />
+          <EntitySet Name="ordersToBePrepareds" EntityType="SarasiModel.ordersToBePrepared" />
+          <EntitySet Name="ProductOrders" EntityType="SarasiModel.ProductOrder" />
+          <EntitySet Name="ReadyMadeProducts" EntityType="SarasiModel.ReadyMadeProduct" />
+          <EntitySet Name="Receptions" EntityType="SarasiModel.Reception" />
+          <EntitySet Name="Salaries" EntityType="SarasiModel.Salary" />
+          <EntitySet Name="StockAudits" EntityType="SarasiModel.StockAudit" />
+          <EntitySet Name="UserLogins" EntityType="SarasiModel.UserLogin" />
+          <EntitySet Name="Vehicles" EntityType="SarasiModel.Vehicle" />
+          <EntitySet Name="VehicleCategories" EntityType="SarasiModel.VehicleCategory" />
+          <AssociationSet Name="FK_Cleaner_Cleaner" Association="SarasiModel.FK_Cleaner_Cleaner">
+            <End Role="Cleaner" EntitySet="Cleaners" />
+            <End Role="Cleaner1" EntitySet="Cleaners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salary_Employee" Association="SarasiModel.FK_Salary_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Salary" EntitySet="Salaries" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Food" Association="SarasiModel.fk_Food">
+            <End Role="FoodCategory" EntitySet="FoodCategories" />
+            <End Role="Food" EntitySet="Foods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderFood" Association="SarasiModel.FK_OrderFood">
+            <End Role="Food" EntitySet="Foods" />
+            <End Role="OrderFood" EntitySet="OrderFoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ITEM" Association="SarasiModel.FK_ITEM">
+            <End Role="ItemCategory" EntitySet="ItemCategories" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RMProucts" Association="SarasiModel.fk_RMProucts">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="ReadyMadeProduct" EntitySet="ReadyMadeProducts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_StockAudit" Association="SarasiModel.fk_StockAudit">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="StockAudit" EntitySet="StockAudits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDDER_READYMADE" Association="SarasiModel.FK_ORDDER_READYMADE">
+            <End Role="ReadyMadeProduct" EntitySet="ReadyMadeProducts" />
+            <End Role="OrderReadymadeProduct" EntitySet="OrderReadymadeProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicle_Vehicle" Association="SarasiModel.FK_Vehicle_Vehicle">
+            <End Role="Vehicle" EntitySet="Vehicles" />
+            <End Role="Vehicle1" EntitySet="Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VehicleCategory_VehicleCategory" Association="SarasiModel.FK_VehicleCategory_VehicleCategory">
+            <End Role="VehicleCategory" EntitySet="VehicleCategories" />
+            <End Role="VehicleCategory1" EntitySet="VehicleCategories" />
+          </AssociationSet>
+          <EntitySet Name="tblContacts" EntityType="SarasiModel.tblContact" />
+          <FunctionImport Name="attenSummery" ReturnType="Collection(SarasiModel.attenSummery_Result)" />
+          <FunctionImport Name="searchItem" ReturnType="Collection(SarasiModel.searchItem_Result)">
+          <Parameter Name="keyword" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Room1" EntityType="SarasiModel.Room1" />
+          <EntitySet Name="DecorationTeams" EntityType="SarasiModel.DecorationTeam" />
+          <EntitySet Name="EventPackages" EntityType="SarasiModel.EventPackage" />
+          <EntitySet Name="TempStaffs" EntityType="SarasiModel.TempStaff" />
+          <EntitySet Name="BookedEvents" EntityType="SarasiModel.BookedEvent" />
+          <EntitySet Name="expOrders" EntityType="SarasiModel.expOrder" />
+          <EntitySet Name="Rents" EntityType="SarasiModel.Rent" />
+          <EntitySet Name="Rent_2" EntityType="SarasiModel.Rent_2" />
+          <EntitySet Name="evPays" EntityType="SarasiModel.evPay" />
+          <FunctionImport Name="getSearchFood" ReturnType="Collection(SarasiModel.getSearchFood_Result)">
+          <Parameter Name="keyword" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Suppliers" EntityType="SarasiModel.Supplier" />
+          <FunctionImport Name="getSearchItems" ReturnType="Collection(SarasiModel.getSearchItems_Result)">
+            <Parameter Name="keyword" Mode="In" Type="String" />
+          </FunctionImport>
+          </EntityContainer>
+        <ComplexType Name="getExpiredItems_Result">
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="categoryName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="expireDate" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getExpiredItems1_Result">
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="categoryName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="expireDate" Nullable="true" />
+          <Property Type="DateTime" Name="date" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getExpiredItemsWithinNextMonth_Result">
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="categoryName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="expireDate" Nullable="true" />
+          <Property Type="DateTime" Name="date" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getOrderedItems_Result">
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="quantity" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getExpiredReadyMades_Result">
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="categoryName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="expireDate" Nullable="true" />
+          <Property Type="DateTime" Name="date" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getExpiredReadyMadesWithinNextMonth_Result">
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="categoryName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="expireDate" Nullable="true" />
+          <Property Type="DateTime" Name="date" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getOrderedItems1_Result">
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="quantity" Nullable="true" />
+          <Property Type="String" Name="orderID" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <EntityType Name="attendence1">
+          <Key>
+            <PropertyRef Name="AttendenceID" />
+          </Key>
+          <Property Name="AttendenceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="INtime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OutTime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cleaner">
+          <Key>
+            <PropertyRef Name="cleanerid" />
+          </Key>
+          <Property Name="cleanerid" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ctype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cleaner1" Relationship="SarasiModel.FK_Cleaner_Cleaner" FromRole="Cleaner" ToRole="Cleaner1" />
+          <NavigationProperty Name="Cleaner2" Relationship="SarasiModel.FK_Cleaner_Cleaner" FromRole="Cleaner1" ToRole="Cleaner" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="driverid" />
+          </Key>
+          <Property Name="driverid" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="service" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="licenceNo" Type="Int32" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="employeeId" />
+          </Key>
+          <Property Name="employeeId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dob" Type="DateTime" Precision="3" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contactno" Type="Int32" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nic" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="matrialstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="basicsalary" Type="Int32" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Salaries" Relationship="SarasiModel.FK_Salary_Employee" FromRole="Employee" ToRole="Salary" />
+        </EntityType>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="foodCode" />
+          </Key>
+          <Property Name="foodCode" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="categoryID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sellingPrice" Type="Double" />
+          <Property Name="disountRate" Type="Double" />
+          <Property Name="foodImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="FoodCategory" Relationship="SarasiModel.fk_Food" FromRole="Food" ToRole="FoodCategory" />
+          <NavigationProperty Name="OrderFoods" Relationship="SarasiModel.FK_OrderFood" FromRole="Food" ToRole="OrderFood" />
+        </EntityType>
+        <EntityType Name="FoodCategory">
+          <Key>
+            <PropertyRef Name="foodCategoryID" />
+          </Key>
+          <Property Name="foodCategoryID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Foods" Relationship="SarasiModel.fk_Food" FromRole="FoodCategory" ToRole="Food" />
+        </EntityType>
+        <EntityType Name="HeadChef">
+          <Key>
+            <PropertyRef Name="headchefid" />
+          </Key>
+          <Property Name="headchefid" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="service" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="itemID" />
+          </Key>
+          <Property Name="itemID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="categoryID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="limitQuantity" Type="Int32" />
+          <Property Name="suppliedBy" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="purchase_price" Type="Double" />
+          <Property Name="unitOfMeasurement" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ItemCategory" Relationship="SarasiModel.FK_ITEM" FromRole="Item" ToRole="ItemCategory" />
+          <NavigationProperty Name="ReadyMadeProduct" Relationship="SarasiModel.fk_RMProucts" FromRole="Item" ToRole="ReadyMadeProduct" />
+          <NavigationProperty Name="StockAudits" Relationship="SarasiModel.fk_StockAudit" FromRole="Item" ToRole="StockAudit" />
+        </EntityType>
+        <EntityType Name="ItemCategory">
+          <Key>
+            <PropertyRef Name="itemCategoryID" />
+          </Key>
+          <Property Name="itemCategoryID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="categoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Items" Relationship="SarasiModel.FK_ITEM" FromRole="ItemCategory" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="Managerid" />
+          </Key>
+          <Property Name="Managerid" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="experience" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Order_">
+          <Key>
+            <PropertyRef Name="orderID" />
+          </Key>
+          <Property Name="orderID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="recordBy" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="time" Type="Time" Precision="7" />
+          <Property Name="amount" Type="Double" />
+        </EntityType>
+        <EntityType Name="OrderFood">
+          <Key>
+            <PropertyRef Name="orderID" />
+            <PropertyRef Name="foodID" />
+          </Key>
+          <Property Name="orderID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="foodID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="total" Type="Double" />
+          <NavigationProperty Name="Food" Relationship="SarasiModel.FK_OrderFood" FromRole="OrderFood" ToRole="Food" />
+        </EntityType>
+        <EntityType Name="OrderReadymadeProduct">
+          <Key>
+            <PropertyRef Name="orderID" />
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="orderID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="productID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="total" Type="Double" />
+          <NavigationProperty Name="ReadyMadeProduct" Relationship="SarasiModel.FK_ORDDER_READYMADE" FromRole="OrderReadymadeProduct" ToRole="ReadyMadeProduct" />
+        </EntityType>
+        <EntityType Name="ordersToBePrepared">
+          <Key>
+            <PropertyRef Name="orderID" />
+          </Key>
+          <Property Name="orderID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductOrder">
+          <Key>
+            <PropertyRef Name="orderID" />
+          </Key>
+          <Property Name="orderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="recordBy" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="time" Type="Time" Precision="7" />
+          <Property Name="amount" Type="Single" />
+        </EntityType>
+        <EntityType Name="ReadyMadeProduct">
+          <Key>
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="productID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="sellingPrice" Type="Double" />
+          <NavigationProperty Name="Item" Relationship="SarasiModel.fk_RMProucts" FromRole="ReadyMadeProduct" ToRole="Item" />
+          <NavigationProperty Name="OrderReadymadeProducts" Relationship="SarasiModel.FK_ORDDER_READYMADE" FromRole="ReadyMadeProduct" ToRole="OrderReadymadeProduct" />
+        </EntityType>
+        <EntityType Name="Reception">
+          <Key>
+            <PropertyRef Name="receptionid" />
+          </Key>
+          <Property Name="receptionid" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="language" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Salary">
+          <Key>
+            <PropertyRef Name="SalaryID" />
+          </Key>
+          <Property Name="SalaryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="NoOfDays" Type="Int32" />
+          <Property Name="OTRate" Type="Double" />
+          <Property Name="OThours" Type="Int32" />
+          <Property Name="Bouns" Type="Double" />
+          <Property Name="Deduction" Type="Double" />
+          <Property Name="ETF" Type="Int32" />
+          <Property Name="Allowance" Type="Double" Nullable="false" />
+          <Property Name="Netsal" Type="Single" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employee" Relationship="SarasiModel.FK_Salary_Employee" FromRole="Salary" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="StockAudit">
+          <Key>
+            <PropertyRef Name="stockAuditID" />
+          </Key>
+          <Property Name="stockAuditID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="itemID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="time" Type="Time" Precision="7" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="inOut" Type="Boolean" />
+          <Property Name="expireDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Item" Relationship="SarasiModel.fk_StockAudit" FromRole="StockAudit" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="UserLogin">
+          <Key>
+            <PropertyRef Name="loginID" />
+          </Key>
+          <Property Name="loginID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="vehicleID" />
+          </Key>
+          <Property Name="vehicleID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="vehicleNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="brand" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="model" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="InsuaranceType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="RentPerDay" Type="Double" />
+          <Property Name="RentPerkm" Type="Double" />
+          <Property Name="VehicleImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Vehicle1" Relationship="SarasiModel.FK_Vehicle_Vehicle" FromRole="Vehicle" ToRole="Vehicle1" />
+          <NavigationProperty Name="Vehicle2" Relationship="SarasiModel.FK_Vehicle_Vehicle" FromRole="Vehicle1" ToRole="Vehicle" />
+        </EntityType>
+        <EntityType Name="VehicleCategory">
+          <Key>
+            <PropertyRef Name="vehicleCategoryID" />
+          </Key>
+          <Property Name="vehicleCategoryID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="VehicleCategory1" Relationship="SarasiModel.FK_VehicleCategory_VehicleCategory" FromRole="VehicleCategory" ToRole="VehicleCategory1" />
+          <NavigationProperty Name="VehicleCategory2" Relationship="SarasiModel.FK_VehicleCategory_VehicleCategory" FromRole="VehicleCategory1" ToRole="VehicleCategory" />
+        </EntityType>
+        <Association Name="FK_Cleaner_Cleaner">
+          <End Type="SarasiModel.Cleaner" Role="Cleaner" Multiplicity="1" />
+          <End Type="SarasiModel.Cleaner" Role="Cleaner1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Cleaner">
+              <PropertyRef Name="cleanerid" />
+            </Principal>
+            <Dependent Role="Cleaner1">
+              <PropertyRef Name="cleanerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salary_Employee">
+          <End Type="SarasiModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="SarasiModel.Salary" Role="Salary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="employeeId" />
+            </Principal>
+            <Dependent Role="Salary">
+              <PropertyRef Name="EmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Food">
+          <End Type="SarasiModel.FoodCategory" Role="FoodCategory" Multiplicity="0..1" />
+          <End Type="SarasiModel.Food" Role="Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCategory">
+              <PropertyRef Name="foodCategoryID" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderFood">
+          <End Type="SarasiModel.Food" Role="Food" Multiplicity="1" />
+          <End Type="SarasiModel.OrderFood" Role="OrderFood" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="foodCode" />
+            </Principal>
+            <Dependent Role="OrderFood">
+              <PropertyRef Name="foodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ITEM">
+          <End Type="SarasiModel.ItemCategory" Role="ItemCategory" Multiplicity="0..1" />
+          <End Type="SarasiModel.Item" Role="Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemCategory">
+              <PropertyRef Name="itemCategoryID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RMProucts">
+          <End Type="SarasiModel.Item" Role="Item" Multiplicity="1" />
+          <End Type="SarasiModel.ReadyMadeProduct" Role="ReadyMadeProduct" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="itemID" />
+            </Principal>
+            <Dependent Role="ReadyMadeProduct">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_StockAudit">
+          <End Type="SarasiModel.Item" Role="Item" Multiplicity="0..1" />
+          <End Type="SarasiModel.StockAudit" Role="StockAudit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="itemID" />
+            </Principal>
+            <Dependent Role="StockAudit">
+              <PropertyRef Name="itemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDDER_READYMADE">
+          <End Type="SarasiModel.ReadyMadeProduct" Role="ReadyMadeProduct" Multiplicity="1" />
+          <End Type="SarasiModel.OrderReadymadeProduct" Role="OrderReadymadeProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReadyMadeProduct">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="OrderReadymadeProduct">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicle_Vehicle">
+          <End Type="SarasiModel.Vehicle" Role="Vehicle" Multiplicity="1" />
+          <End Type="SarasiModel.Vehicle" Role="Vehicle1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicle">
+              <PropertyRef Name="vehicleID" />
+            </Principal>
+            <Dependent Role="Vehicle1">
+              <PropertyRef Name="vehicleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VehicleCategory_VehicleCategory">
+          <End Type="SarasiModel.VehicleCategory" Role="VehicleCategory" Multiplicity="1" />
+          <End Type="SarasiModel.VehicleCategory" Role="VehicleCategory1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="VehicleCategory">
+              <PropertyRef Name="vehicleCategoryID" />
+            </Principal>
+            <Dependent Role="VehicleCategory1">
+              <PropertyRef Name="vehicleCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblContact">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="attenSummery_Result">
+          <Property Type="Int32" Name="Employees" Nullable="true" />
+          <Property Type="Int32" Name="Month" Nullable="true" />
+          <Property Type="String" Name="status" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="searchItem_Result">
+          <Property Type="String" Name="ItemID" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="purchase_price" Nullable="true" />
+          <Property Type="Binary" Name="image" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <EntityType Name="Room1">
+          <Key>
+            <PropertyRef Name="RoomID" />
+          </Key>
+          <Property Name="RoomID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RoomNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="bedtype" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="maxaadult" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="floor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="roomtype" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RoomImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="available" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DecorationTeam">
+          <Key>
+            <PropertyRef Name="dtID" />
+          </Key>
+          <Property Name="dtID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dtName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NoOfMembers" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="contactNo" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="image1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image2" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="EventPackage">
+          <Key>
+            <PropertyRef Name="packageID" />
+          </Key>
+          <Property Name="packageID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="plate_price" Type="Double" Nullable="false" />
+          <Property Name="noOfCurries" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="mainMeal" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="desert" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TempStaff">
+          <Key>
+            <PropertyRef Name="staffID" />
+          </Key>
+          <Property Name="staffID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="fName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="contact" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dailySal" Type="Double" Nullable="false" />
+          <Property Name="type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BookedEvent">
+          <Key>
+            <PropertyRef Name="eventID" />
+          </Key>
+          <Property Name="eventID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="currentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="currentTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="customerID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="customerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="eventDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="eventName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hall" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="time" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="themeColor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="decoTeam" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="foodPckage" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="note" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="eventTime" Type="Time" Precision="7" />
+          <Property Name="noOfParticipants" Type="Int32" />
+          <Property Name="advance" Type="Double" />
+        </EntityType>
+        <EntityType Name="expOrder">
+          <Key>
+            <PropertyRef Name="expOrderID" />
+          </Key>
+          <Property Name="expOrderID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="eventID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="list" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RentID" Type="Int32" Nullable="false" />
+          <Property Name="DriverID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VehiID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CusID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AfterDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NoOfKM" Type="Int32" Nullable="false" />
+          <Property Name="TotalPrice" Type="Double" Nullable="false" />
+          <Property Name="Advance" Type="Double" Nullable="false" />
+          <Property Name="Balance" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rent_2">
+          <Key>
+            <PropertyRef Name="RentID" />
+          </Key>
+          <Property Name="RentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vehicleID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DriverID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vehicleNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="VehicleImage" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="AfterDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="evPay">
+          <Key>
+            <PropertyRef Name="paymentID" />
+          </Key>
+          <Property Name="paymentID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="eventID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="advance" Type="Double" />
+          <Property Name="remainning" Type="Double" />
+          <Property Name="paid" Type="Double" />
+          <Property Name="change" Type="Double" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="time" Type="Time" Precision="7" />
+          <Property Name="total" Type="Double" />
+        </EntityType>
+        <ComplexType Name="getSearchFood_Result">
+          <Property Type="String" Name="foodCode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="categoryID" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="description" Nullable="true" />
+          <Property Type="Double" Name="sellingPrice" Nullable="true" />
+          <Property Type="Double" Name="disountRate" Nullable="true" />
+          <Property Type="Binary" Name="foodImage" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SID" />
+          </Key>
+          <Property Name="SID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="getSearchItems_Result">
+          <Property Type="String" Name="itemID" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="categoryID" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="limitQuantity" Nullable="true" />
+          <Property Type="String" Name="suppliedBy" Nullable="true" MaxLength="10" />
+          <Property Type="Binary" Name="image" Nullable="true" MaxLength="Max" />
+          <Property Type="Double" Name="purchase_price" Nullable="true" />
+          <Property Type="String" Name="unitOfMeasurement" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SarasiModelStoreContainer" CdmEntityContainer="DBEntities">
+          <FunctionImportMapping FunctionImportName="getExpiredItems1" FunctionName="SarasiModel.Store.getExpiredItems">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SarasiModel.getExpiredItems1_Result">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="expireDate" ColumnName="expireDate" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getExpiredItemsWithinNextMonth" FunctionName="SarasiModel.Store.getExpiredItemsWithinNextMonth">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SarasiModel.getExpiredItemsWithinNextMonth_Result">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="expireDate" ColumnName="expireDate" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getExpiredReadyMades" FunctionName="SarasiModel.Store.getExpiredReadyMades">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SarasiModel.getExpiredReadyMades_Result">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="expireDate" ColumnName="expireDate" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getExpiredReadyMadesWithinNextMonth" FunctionName="SarasiModel.Store.getExpiredReadyMadesWithinNextMonth">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SarasiModel.getExpiredReadyMadesWithinNextMonth_Result">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="expireDate" ColumnName="expireDate" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getOrderedItems1" FunctionName="SarasiModel.Store.getOrderedItems">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SarasiModel.getOrderedItems1_Result">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="orderID" ColumnName="orderID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="attendence1">
+            <EntityTypeMapping TypeName="SarasiModel.attendence1">
+              <MappingFragment StoreEntitySet="attendence1">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="OutTime" ColumnName="OutTime" />
+                <ScalarProperty Name="INtime" ColumnName="INtime" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="AttendenceID" ColumnName="AttendenceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cleaners">
+            <EntityTypeMapping TypeName="SarasiModel.Cleaner">
+              <MappingFragment StoreEntitySet="Cleaner">
+                <ScalarProperty Name="ctype" ColumnName="ctype" />
+                <ScalarProperty Name="cleanerid" ColumnName="cleanerid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drivers">
+            <EntityTypeMapping TypeName="SarasiModel.Driver">
+              <MappingFragment StoreEntitySet="Driver">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="licenceNo" ColumnName="licenceNo" />
+                <ScalarProperty Name="service" ColumnName="service" />
+                <ScalarProperty Name="driverid" ColumnName="driverid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="SarasiModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="basicsalary" ColumnName="basicsalary" />
+                <ScalarProperty Name="matrialstatus" ColumnName="matrialstatus" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="nic" ColumnName="nic" />
+                <ScalarProperty Name="nationality" ColumnName="nationality" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="contactno" ColumnName="contactno" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="lname" ColumnName="lname" />
+                <ScalarProperty Name="fname" ColumnName="fname" />
+                <ScalarProperty Name="employeeId" ColumnName="employeeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Foods">
+            <EntityTypeMapping TypeName="SarasiModel.Food">
+              <MappingFragment StoreEntitySet="Food">
+                <ScalarProperty Name="foodImage" ColumnName="foodImage" />
+                <ScalarProperty Name="disountRate" ColumnName="disountRate" />
+                <ScalarProperty Name="sellingPrice" ColumnName="sellingPrice" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="foodCode" ColumnName="foodCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodCategories">
+            <EntityTypeMapping TypeName="SarasiModel.FoodCategory">
+              <MappingFragment StoreEntitySet="FoodCategory">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="foodCategoryID" ColumnName="foodCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HeadChefs">
+            <EntityTypeMapping TypeName="SarasiModel.HeadChef">
+              <MappingFragment StoreEntitySet="HeadChef">
+                <ScalarProperty Name="service" ColumnName="service" />
+                <ScalarProperty Name="headchefid" ColumnName="headchefid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="SarasiModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="unitOfMeasurement" ColumnName="unitOfMeasurement" />
+                <ScalarProperty Name="purchase_price" ColumnName="purchase_price" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="suppliedBy" ColumnName="suppliedBy" />
+                <ScalarProperty Name="limitQuantity" ColumnName="limitQuantity" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="itemID" ColumnName="itemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemCategories">
+            <EntityTypeMapping TypeName="SarasiModel.ItemCategory">
+              <MappingFragment StoreEntitySet="ItemCategory">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="itemCategoryID" ColumnName="itemCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Managers">
+            <EntityTypeMapping TypeName="SarasiModel.Manager">
+              <MappingFragment StoreEntitySet="Manager">
+                <ScalarProperty Name="experience" ColumnName="experience" />
+                <ScalarProperty Name="Managerid" ColumnName="Managerid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_">
+            <EntityTypeMapping TypeName="SarasiModel.Order_">
+              <MappingFragment StoreEntitySet="Order_">
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="recordBy" ColumnName="recordBy" />
+                <ScalarProperty Name="orderID" ColumnName="orderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderFoods">
+            <EntityTypeMapping TypeName="SarasiModel.OrderFood">
+              <MappingFragment StoreEntitySet="OrderFood">
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="foodID" ColumnName="foodID" />
+                <ScalarProperty Name="orderID" ColumnName="orderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderReadymadeProducts">
+            <EntityTypeMapping TypeName="SarasiModel.OrderReadymadeProduct">
+              <MappingFragment StoreEntitySet="OrderReadymadeProduct">
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="productID" ColumnName="productID" />
+                <ScalarProperty Name="orderID" ColumnName="orderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ordersToBePrepareds">
+            <EntityTypeMapping TypeName="SarasiModel.ordersToBePrepared">
+              <MappingFragment StoreEntitySet="ordersToBePrepared">
+                <ScalarProperty Name="orderID" ColumnName="orderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductOrders">
+            <EntityTypeMapping TypeName="SarasiModel.ProductOrder">
+              <MappingFragment StoreEntitySet="ProductOrder">
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="recordBy" ColumnName="recordBy" />
+                <ScalarProperty Name="orderID" ColumnName="orderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReadyMadeProducts">
+            <EntityTypeMapping TypeName="SarasiModel.ReadyMadeProduct">
+              <MappingFragment StoreEntitySet="ReadyMadeProduct">
+                <ScalarProperty Name="sellingPrice" ColumnName="sellingPrice" />
+                <ScalarProperty Name="productID" ColumnName="productID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Receptions">
+            <EntityTypeMapping TypeName="SarasiModel.Reception">
+              <MappingFragment StoreEntitySet="Reception">
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="receptionid" ColumnName="receptionid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salaries">
+            <EntityTypeMapping TypeName="SarasiModel.Salary">
+              <MappingFragment StoreEntitySet="Salary">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Netsal" ColumnName="Netsal" />
+                <ScalarProperty Name="Allowance" ColumnName="Allowance" />
+                <ScalarProperty Name="ETF" ColumnName="ETF" />
+                <ScalarProperty Name="Deduction" ColumnName="Deduction" />
+                <ScalarProperty Name="Bouns" ColumnName="Bouns" />
+                <ScalarProperty Name="OThours" ColumnName="OThours" />
+                <ScalarProperty Name="OTRate" ColumnName="OTRate" />
+                <ScalarProperty Name="NoOfDays" ColumnName="NoOfDays" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="SalaryID" ColumnName="SalaryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockAudits">
+            <EntityTypeMapping TypeName="SarasiModel.StockAudit">
+              <MappingFragment StoreEntitySet="StockAudit">
+                <ScalarProperty Name="expireDate" ColumnName="expireDate" />
+                <ScalarProperty Name="inOut" ColumnName="inOut" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="itemID" ColumnName="itemID" />
+                <ScalarProperty Name="stockAuditID" ColumnName="stockAuditID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLogins">
+            <EntityTypeMapping TypeName="SarasiModel.UserLogin">
+              <MappingFragment StoreEntitySet="UserLogin">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="loginID" ColumnName="loginID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles">
+            <EntityTypeMapping TypeName="SarasiModel.Vehicle">
+              <MappingFragment StoreEntitySet="Vehicle">
+                <ScalarProperty Name="VehicleImage" ColumnName="VehicleImage" />
+                <ScalarProperty Name="RentPerkm" ColumnName="RentPerkm" />
+                <ScalarProperty Name="RentPerDay" ColumnName="RentPerDay" />
+                <ScalarProperty Name="InsuaranceType" ColumnName="InsuaranceType" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="vehicleNo" ColumnName="vehicleNo" />
+                <ScalarProperty Name="vehicleID" ColumnName="vehicleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VehicleCategories">
+            <EntityTypeMapping TypeName="SarasiModel.VehicleCategory">
+              <MappingFragment StoreEntitySet="VehicleCategory">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="vehicleCategoryID" ColumnName="vehicleCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblContacts">
+            <EntityTypeMapping TypeName="SarasiModel.tblContact">
+              <MappingFragment StoreEntitySet="tblContact">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="attenSummery" FunctionName="SarasiModel.Store.attenSummery">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SarasiModel.attenSummery_Result">
+                <ScalarProperty Name="Employees" ColumnName="Employees" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="searchItem" FunctionName="SarasiModel.Store.searchItem">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SarasiModel.searchItem_Result">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="purchase_price" ColumnName="purchase_price" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Room1">
+            <EntityTypeMapping TypeName="SarasiModel.Room1">
+              <MappingFragment StoreEntitySet="Room1">
+                <ScalarProperty Name="available" ColumnName="available" />
+                <ScalarProperty Name="RoomImage" ColumnName="RoomImage" />
+                <ScalarProperty Name="roomtype" ColumnName="roomtype" />
+                <ScalarProperty Name="floor" ColumnName="floor" />
+                <ScalarProperty Name="maxaadult" ColumnName="maxaadult" />
+                <ScalarProperty Name="bedtype" ColumnName="bedtype" />
+                <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DecorationTeams">
+            <EntityTypeMapping TypeName="SarasiModel.DecorationTeam">
+              <MappingFragment StoreEntitySet="DecorationTeam">
+                <ScalarProperty Name="image2" ColumnName="image2" />
+                <ScalarProperty Name="image1" ColumnName="image1" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contactNo" ColumnName="contactNo" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="NoOfMembers" ColumnName="NoOfMembers" />
+                <ScalarProperty Name="dtName" ColumnName="dtName" />
+                <ScalarProperty Name="dtID" ColumnName="dtID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventPackages">
+            <EntityTypeMapping TypeName="SarasiModel.EventPackage">
+              <MappingFragment StoreEntitySet="EventPackage">
+                <ScalarProperty Name="desert" ColumnName="desert" />
+                <ScalarProperty Name="mainMeal" ColumnName="mainMeal" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="noOfCurries" ColumnName="noOfCurries" />
+                <ScalarProperty Name="plate_price" ColumnName="plate_price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="packageID" ColumnName="packageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TempStaffs">
+            <EntityTypeMapping TypeName="SarasiModel.TempStaff">
+              <MappingFragment StoreEntitySet="TempStaff">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="dailySal" ColumnName="dailySal" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="lName" ColumnName="lName" />
+                <ScalarProperty Name="fName" ColumnName="fName" />
+                <ScalarProperty Name="staffID" ColumnName="staffID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookedEvents">
+            <EntityTypeMapping TypeName="SarasiModel.BookedEvent">
+              <MappingFragment StoreEntitySet="BookedEvent">
+                <ScalarProperty Name="advance" ColumnName="advance" />
+                <ScalarProperty Name="noOfParticipants" ColumnName="noOfParticipants" />
+                <ScalarProperty Name="eventTime" ColumnName="eventTime" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="foodPckage" ColumnName="foodPckage" />
+                <ScalarProperty Name="decoTeam" ColumnName="decoTeam" />
+                <ScalarProperty Name="themeColor" ColumnName="themeColor" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="hall" ColumnName="hall" />
+                <ScalarProperty Name="eventName" ColumnName="eventName" />
+                <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+                <ScalarProperty Name="customerName" ColumnName="customerName" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="currentTime" ColumnName="currentTime" />
+                <ScalarProperty Name="currentDate" ColumnName="currentDate" />
+                <ScalarProperty Name="eventID" ColumnName="eventID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="expOrders">
+            <EntityTypeMapping TypeName="SarasiModel.expOrder">
+              <MappingFragment StoreEntitySet="expOrder">
+                <ScalarProperty Name="list" ColumnName="list" />
+                <ScalarProperty Name="eventID" ColumnName="eventID" />
+                <ScalarProperty Name="expOrderID" ColumnName="expOrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rents">
+            <EntityTypeMapping TypeName="SarasiModel.Rent">
+              <MappingFragment StoreEntitySet="Rent">
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="Advance" ColumnName="Advance" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="NoOfKM" ColumnName="NoOfKM" />
+                <ScalarProperty Name="AfterDate" ColumnName="AfterDate" />
+                <ScalarProperty Name="RentDate" ColumnName="RentDate" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
+                <ScalarProperty Name="VehiID" ColumnName="VehiID" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="RentID" ColumnName="RentID" />
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rent_2">
+            <EntityTypeMapping TypeName="SarasiModel.Rent_2">
+              <MappingFragment StoreEntitySet="Rent_2">
+                <ScalarProperty Name="AfterDate" ColumnName="AfterDate" />
+                <ScalarProperty Name="VehicleImage" ColumnName="VehicleImage" />
+                <ScalarProperty Name="RentDate" ColumnName="RentDate" />
+                <ScalarProperty Name="vehicleNo" ColumnName="vehicleNo" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="vehicleID" ColumnName="vehicleID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="RentID" ColumnName="RentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="evPays">
+            <EntityTypeMapping TypeName="SarasiModel.evPay">
+              <MappingFragment StoreEntitySet="evPay">
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="change" ColumnName="change" />
+                <ScalarProperty Name="paid" ColumnName="paid" />
+                <ScalarProperty Name="remainning" ColumnName="remainning" />
+                <ScalarProperty Name="advance" ColumnName="advance" />
+                <ScalarProperty Name="eventID" ColumnName="eventID" />
+                <ScalarProperty Name="paymentID" ColumnName="paymentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getSearchFood" FunctionName="SarasiModel.Store.getSearchFood">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SarasiModel.getSearchFood_Result">
+                <ScalarProperty Name="foodCode" ColumnName="foodCode" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="sellingPrice" ColumnName="sellingPrice" />
+                <ScalarProperty Name="disountRate" ColumnName="disountRate" />
+                <ScalarProperty Name="foodImage" ColumnName="foodImage" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="SarasiModel.Supplier">
+              <MappingFragment StoreEntitySet="Suppliers">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SID" ColumnName="SID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getSearchItems" FunctionName="SarasiModel.Store.getSearchItems">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SarasiModel.getSearchItems_Result">
+                <ScalarProperty Name="itemID" ColumnName="itemID" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="limitQuantity" ColumnName="limitQuantity" />
+                <ScalarProperty Name="suppliedBy" ColumnName="suppliedBy" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="purchase_price" ColumnName="purchase_price" />
+                <ScalarProperty Name="unitOfMeasurement" ColumnName="unitOfMeasurement" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

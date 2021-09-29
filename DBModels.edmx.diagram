@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c225a4509f684fa1915e47ec444e2809" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="SarasiModel.attendence1" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SarasiModel.Cleaner" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="SarasiModel.Driver" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SarasiModel.Employee" Width="1.5" PointX="6.75" PointY="9" />
+        <EntityTypeShape EntityType="SarasiModel.Food" Width="1.5" PointX="10" PointY="5" />
+        <EntityTypeShape EntityType="SarasiModel.FoodCategory" Width="1.5" PointX="7.75" PointY="5.5" />
+        <EntityTypeShape EntityType="SarasiModel.HeadChef" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SarasiModel.Item" Width="1.5" PointX="3" PointY="2.125" />
+        <EntityTypeShape EntityType="SarasiModel.ItemCategory" Width="1.5" PointX="0.75" PointY="2.875" />
+        <EntityTypeShape EntityType="SarasiModel.Manager" Width="1.5" PointX="2.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SarasiModel.Order_" Width="1.5" PointX="11.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SarasiModel.OrderFood" Width="1.5" PointX="12.25" PointY="5.375" />
+        <EntityTypeShape EntityType="SarasiModel.OrderReadymadeProduct" Width="1.5" PointX="7.5" PointY="1.125" />
+        <EntityTypeShape EntityType="SarasiModel.ordersToBePrepared" Width="1.5" PointX="11.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SarasiModel.ProductOrder" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SarasiModel.ReadyMadeProduct" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="SarasiModel.Reception" Width="1.5" PointX="4.75" PointY="13.75" />
+        <EntityTypeShape EntityType="SarasiModel.Salary" Width="1.5" PointX="9" PointY="9" />
+        <EntityTypeShape EntityType="SarasiModel.StockAudit" Width="1.5" PointX="5.25" PointY="3.875" />
+        <EntityTypeShape EntityType="SarasiModel.UserLogin" Width="1.5" PointX="6.75" PointY="13.75" />
+        <EntityTypeShape EntityType="SarasiModel.Vehicle" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="SarasiModel.VehicleCategory" Width="1.5" PointX="0.75" PointY="6.75" />
+        <AssociationConnector Association="SarasiModel.FK_Cleaner_Cleaner" />
+        <AssociationConnector Association="SarasiModel.FK_Salary_Employee" />
+        <AssociationConnector Association="SarasiModel.fk_Food" />
+        <AssociationConnector Association="SarasiModel.FK_OrderFood" />
+        <AssociationConnector Association="SarasiModel.FK_ITEM" />
+        <AssociationConnector Association="SarasiModel.fk_RMProucts" />
+        <AssociationConnector Association="SarasiModel.fk_StockAudit" />
+        <AssociationConnector Association="SarasiModel.FK_ORDDER_READYMADE" />
+        <AssociationConnector Association="SarasiModel.FK_Vehicle_Vehicle" />
+        <AssociationConnector Association="SarasiModel.FK_VehicleCategory_VehicleCategory" />
+        <EntityTypeShape EntityType="SarasiModel.tblContact" Width="1.5" PointX="9.375" PointY="13.75" />
+        <EntityTypeShape EntityType="SarasiModel.Room1" Width="1.5" PointX="11.375" PointY="13.75" />
+        <EntityTypeShape EntityType="SarasiModel.DecorationTeam" Width="1.5" PointX="13.75" PointY="13.75" />
+        <EntityTypeShape EntityType="SarasiModel.EventPackage" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="SarasiModel.TempStaff" Width="1.5" PointX="14.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SarasiModel.BookedEvent" Width="1.5" PointX="14.375" PointY="7.75" />
+        <EntityTypeShape EntityType="SarasiModel.expOrder" Width="1.5" PointX="16.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SarasiModel.Rent" Width="1.5" PointX="3.375" PointY="16.75" />
+        <EntityTypeShape EntityType="SarasiModel.Rent_2" Width="1.5" PointX="5.375" PointY="16.75" />
+        <EntityTypeShape EntityType="SarasiModel.evPay" Width="1.5" PointX="16.375" PointY="7.75" />
+        <EntityTypeShape EntityType="SarasiModel.Supplier" Width="1.5" PointX="7.375" PointY="16.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
